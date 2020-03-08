@@ -7,7 +7,7 @@
     "gatsby",
     "gatsby-plugins",
     "gatsby-plugin-google-analytics",
-    "google-reporter",
+    "google-reporting",
     "google-analytics"
   ],
   "bugs": {
