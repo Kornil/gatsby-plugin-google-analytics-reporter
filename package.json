@@ -1,0 +1,22 @@
+{
+  "name": "gatsby-plugin-google-analytics-reporter",
+  "version": "1.0.0",
+  "description": "A plugin to query most viewed pages from google analytics",
+  "main": "gatsby-node.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugins",
+    "gatsby-plugin-google-analytics",
+    "google-reporter",
+    "google-analytics"
+  ],
+  "bugs": {
+    "url": "https://github.com/Kornil/gatsby-plugin-google-analytics-reporter/issues"
+  },
+  "homepage": "https://github.com/Kornil/gatsby-plugin-google-analytics-reporter#readme",
+  "author": "Francesco Agnoletto",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^47.0.0"
+  }
+}
