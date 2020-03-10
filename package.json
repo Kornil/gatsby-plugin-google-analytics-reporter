@@ -5,7 +5,7 @@
   "main": "gatsby-node.js",
   "keywords": [
     "gatsby",
-    "gatsby-plugins",
+    "gatsby-plugin",
     "gatsby-plugin-google-analytics",
     "google-reporting",
     "google-analytics"
