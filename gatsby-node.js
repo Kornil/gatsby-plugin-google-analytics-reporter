@@ -3,20 +3,20 @@ const { google } = require('googleapis');
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions;
-  const scopes = "https://www.googleapis.com/auth/analytics.readonly";
+  const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
 
   const jwt = new google.auth.JWT(
     configOptions.email,
     null,
     // fix netlify \n in env vars
     // https://github.com/auth0/node-jsonwebtoken/issues/642#issuecomment-585173594
-    configOptions.privateKey.replace(/\\n/gm, "\n"),
+    configOptions.privateKey.replace(/\\n/gm, '\n'),
     scopes
   );
   await jwt.authorize();
 
   const analyticsReporting = google.analyticsreporting({
-    version: "v4",
+    version: 'v4',
     auth: jwt,
   });
 
@@ -27,26 +27,27 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
           viewId: configOptions.viewId,
           dateRanges: [
             {
-              startDate: configOptions.startDate || "2008-01-01",
-              endDate: configOptions.endDate || "today",
+              startDate: configOptions.startDate || '2008-01-01',
+              endDate: configOptions.endDate || 'today',
             },
           ],
           metrics: [
             {
-              expression: "ga:pageviews",
+              expression: 'ga:pageviews',
             },
           ],
           dimensions: [
             {
-              name: "ga:pagePath",
+              name: 'ga:pagePath',
             },
           ],
           orderBys: [
             {
-              sortOrder: "DESCENDING",
-              fieldName: "ga:pageviews",
+              sortOrder: 'DESCENDING',
+              fieldName: 'ga:pageviews',
             },
           ],
+          pageSize: configOptions.pageSize || 1000,
         },
       ],
     },
