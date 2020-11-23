@@ -10,7 +10,6 @@ Install the package.
 
 Add it to `gatsby-config.js`, make sure you have set up the variables needed to query analytics ([guide here]())
 
-
 ```js
 // gatsby-config.js
 {
@@ -20,20 +19,22 @@ Add it to `gatsby-config.js`, make sure you have set up the variables needed to 
     privateKey: process.env.PRIVATE_KEY,
     viewId: process.env.VIEWID,
     startDate: `30daysAgo`,
-    endDate: `today`
+    endDate: `today`,
+    pageSize: 10000
   }
 },
 ```
 
 The plugin accept an object following the schema below.
 
-| Prop        | Required |   Type | Description                                                                                                                                                                                                                |
-| ----------- | :------: | -----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| clientEmail |   true   | string | The service account email enabled on [Google Could](https://console.cloud.google.com/) to query the analytics service                                                                                                      |
-| privateKey  |   true   | string | The private key from the service account provided above                                                                                                                                                                    |
-| viewId      |   true   | string | Google analytics viewId for the project to query. It can be found on google analytics > Admin (cog icon) > View settings                                                                                                   |
-| startDate   |  false   | string | The start and end dates are specified in ISO8601 date format YYYY-MM-DD, ex: 2010-04-28. Everything accepted by Google Reporting API, like `30daysAgo`, `today` and `yesterday` is also a valid input. Defaults to `2008-01-01` |
-| endDate     |  false   | string | The start and end dates are specified in ISO8601 date format YYYY-MM-DD, ex: 2010-04-28. Everything accepted by Google Reporting API, like `30daysAgo`, `today` and `yesterday` is also a valid input. Defaults to `today`      |
+| Prop        | Required |   Type | Description                                                                                                                                                                                                                      |
+| ----------- | :------: | -----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| clientEmail |   true   | string | The service account email enabled on [Google Could](https://console.cloud.google.com/) to query the analytics service.                                                                                                           |
+| privateKey  |   true   | string | The private key from the service account provided above.                                                                                                                                                                         |
+| viewId      |   true   | string | Google analytics viewId for the project to query. It can be found on google analytics > Admin (cog icon) > View settings                                                                                                         |
+| startDate   |  false   | string | The start and end dates are specified in ISO8601 date format YYYY-MM-DD, ex: 2010-04-28. Everything accepted by Google Reporting API, like `30daysAgo`, `today` and `yesterday` is also a valid input. Defaults to `2008-01-01`. |
+| endDate     |  false   | string | The start and end dates are specified in ISO8601 date format YYYY-MM-DD, ex: 2010-04-28. Everything accepted by Google Reporting API, like `30daysAgo`, `today` and `yesterday` is also a valid input. Defaults to `today`.      |
+| pageSize    |  false   | number | Maximum number of results to return. For Google Reporting API v4 this can not exceed 100000. Defaults to 1000.                                                                                                                   |
 
 Once implemented, you can check that the query work on `localhost:8000/__graphql`. There you will find two new keys available for queries: `pageViews` and `allPageViews`.
 
@@ -73,7 +74,6 @@ query MyQuery {
 }
 ```
 
-
 ```js
 // graphql
 query MyQuery {
@@ -83,7 +83,7 @@ query MyQuery {
   }
 }
 
-// returns 
+// returns
 {
   "data": {
     "pageViews": {
@@ -93,4 +93,3 @@ query MyQuery {
   }
 }
 ```
-
