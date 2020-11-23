@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-google-analytics-reporter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A plugin to query most viewed pages from google analytics",
   "main": "gatsby-node.js",
   "keywords": [
