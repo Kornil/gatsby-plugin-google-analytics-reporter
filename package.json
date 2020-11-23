@@ -17,6 +17,6 @@
   "author": "Francesco Agnoletto",
   "license": "MIT",
   "dependencies": {
-    "googleapis": "^47.0.0"
+    "googleapis": "^65.0.0"
   }
 }
