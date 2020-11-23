@@ -8,7 +8,7 @@ Install the package.
 
 `$ npm i gatsby-plugin-google-analytics-reporter`
 
-Add it to `gatsby-config.js`, make sure you have set up the variables needed to query analytics ([guide here]())
+Add it to `gatsby-config.js`, make sure you have set up the variables needed to query analytics ([guide here](https://decodenatura.com/how-to-add-a-trending-section-to-gatsby-blog/))
 
 ```js
 // gatsby-config.js
