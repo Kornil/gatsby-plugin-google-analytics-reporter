@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const { google } = require('googleapis');
 
-exports.sourceNodes = async ({ actions }, configOptions) => {
+exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
   const { createNode } = actions;
   const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
 
@@ -60,7 +60,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     createNode({
       path,
       totalCount: Number(totalCount),
-      id: path,
+      id: createNodeId(path),
       internal: {
         type: `PageViews`,
         contentDigest: crypto
